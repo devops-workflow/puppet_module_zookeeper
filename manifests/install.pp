@@ -68,7 +68,7 @@ class zookeeper::install (
     follow_redirects => $follow_redirects,
     extension        => $extension,
     checksum         => $checksum,
-    notify           => [File[$installDir]],
+    #notify           => [File[$installDir]],
     digest_string    => $digest_string,
     digest_type      => $digest_type
   }
