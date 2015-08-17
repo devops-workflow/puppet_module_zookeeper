@@ -58,10 +58,16 @@ class zookeeper::params {
 
   case $::osfamily {
     'RedHat' : {
-      if $::operatingsystemmajrelease == 7 {
-        # firewalld, systemd, systemctl
-        # classes: firewall2iptables, firewall
-      } else {
+      case $::operatingsystemmajrelease {
+        '6'     : {
+                    $initstyle = 'sysv'
+                  }
+        '7'     : {
+                    $initstyle = 'systemd'
+                    # firewalld, systemd, systemctl
+                    # classes: firewall2iptables, firewall
+                  }
+        default : { $initstyle = 'unknown' }
       }
     }
     default: { fail("The ${::osfamily} operating system is not supported by the zookeeper module") }

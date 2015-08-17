@@ -83,7 +83,19 @@ class zookeeper::install (
 
   # TODO: Change to var
   file { '/opt/zookeeper':
-    ensure => link,
-    target => $installDir,
+    ensure  => link,
+    target  => $installDir,
+    require => [Archive['zookeeper']],
+  }
+
+  # if EL6
+  file { '/usr/libexec/zkEnv.sh':
+    ensure  => link,
+    target  => "${installDir}/bin/zkEnv.sh",
+    require => [Archive['zookeeper']],
+  }
+  file { '/etc/init.d/zookeeper':
+    source  => "${installDir}/src/packages/rpm/init.d/zookeeper",
+    require => [Archive['zookeeper']],
   }
 }
