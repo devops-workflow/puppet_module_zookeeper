@@ -11,8 +11,8 @@ ConditionPathExists=<%= @configDir %>/log4j.properties
 [Service]
 Environment="JVMFLAGS=<%= @jvmFlags %>"
 Environment="ZOOCFGDIR=<%= @configDir %>"
-User=root
-Group=root
+User=<%= @user %>
+Group=<%= @group %>
 UMask=0027
 SyslogIdentifier=<%= @service_name %>
 WorkingDirectory=<%= @installDir %>

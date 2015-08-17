@@ -73,11 +73,11 @@ class zookeeper::install (
     digest_type      => $digest_type
   }
 
-  file{ $installDir:
-    ensure  => directory,
-    owner   => $user,
-    recurse => true,
-    require => [Archive['zookeeper'],User[$user]],
-    mode    => 'ug=rwxs,o=r'
-  }
+  #file{ $installDir:
+  #  ensure  => directory,
+  #  owner   => $user,
+  #  recurse => true,
+  #  require => [Archive['zookeeper'],User[$user]],
+  #  mode    => 'ug=rwxs,o=r'
+  #}
 }
