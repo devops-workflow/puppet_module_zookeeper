@@ -16,7 +16,7 @@ class zookeeper::params {
   $group                  = 'zookeeper'
   $user                   = 'zookeeper'
   $manage_user            = true
-  $installDir             = '/opt/zookeeper'
+  $installDir             = "/opt/${pkg_name}-${pkg_version}"
   $tmpDir                 = '/tmp'
   $jvmFlags               = '-Dzookeeper.log.threshold=INFO -Xmx1g'
   # TODO:

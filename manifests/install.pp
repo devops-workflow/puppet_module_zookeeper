@@ -80,4 +80,10 @@ class zookeeper::install (
   #  require => [Archive['zookeeper'],User[$user]],
   #  mode    => 'ug=rwxs,o=r'
   #}
+
+  # TODO: Change to var
+  file { '/opt/zookeeper':
+    ensure => link,
+    target => $installDir,
+  }
 }
