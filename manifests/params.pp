@@ -52,10 +52,9 @@ class zookeeper::params {
   $manage_service         = true
   $service_name           = 'zookeeper'
 # Log4j configuration
-  # $log4j_prop              = 'INFO,ROLLINGFILE',
-  # $rollingfile_threshold   = 'ERROR',
-  # $tracefile_threshold     = 'TRACE',
- 
+  # $log4j_prop             = 'INFO,ROLLINGFILE'
+  # $rollingfile_threshold  = 'ERROR'
+  # $tracefile_threshold    = 'TRACE'
 
   case $::osfamily {
     'RedHat' : {
