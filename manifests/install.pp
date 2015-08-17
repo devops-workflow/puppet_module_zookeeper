@@ -89,11 +89,14 @@ class zookeeper::install (
   }
 
   # if EL6
+  # This does not work. Will require more work
   file { '/usr/libexec/zkEnv.sh':
     ensure  => link,
     target  => "${installDir}/bin/zkEnv.sh",
     require => [Archive['zookeeper']],
   }
+  # Does not find scripts (expects to be on path)
+  # other issues follow
   file { '/etc/init.d/zookeeper':
     source  => "${installDir}/src/packages/rpm/init.d/zookeeper",
     mode    => '0555',
