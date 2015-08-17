@@ -96,6 +96,7 @@ class zookeeper::install (
   }
   file { '/etc/init.d/zookeeper':
     source  => "${installDir}/src/packages/rpm/init.d/zookeeper",
+    mode    => '0555',
     require => [Archive['zookeeper']],
   }
 }
